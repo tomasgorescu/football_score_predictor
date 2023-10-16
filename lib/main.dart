@@ -5,7 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'constants/constants.dart';
 import 'constants/routes.dart';
 import 'utilites/league_card.dart';
-import 'views/leagues_view.dart';
+import 'views/matches_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +20,7 @@ Future<void> main() async {
     ),
     home: const HomePage(),
     routes: {
-      matchesRoute: (context) => const LeaguesView(),
+      matchesRoute: (context) => const MatchesView(),
       seasonsRoute: (context) => const SeasonView(),
     },
   ));

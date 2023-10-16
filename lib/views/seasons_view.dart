@@ -42,6 +42,7 @@ class _SeasonViewState extends State<SeasonView> {
                   seasonId: season['season_id'].toString(),
                   seasonName: season['season_name'],
                   competitionId: season['competition_id'].toString(),
+                  leagueName: arguments['leagueName'],
                 );
               }),
             );
@@ -54,19 +55,27 @@ class SeasonCard extends StatelessWidget {
   final String seasonName;
   final String seasonId;
   final String competitionId;
+  final String leagueName;
 
   const SeasonCard({
     super.key,
     required this.seasonName,
     required this.seasonId,
     required this.competitionId,
+    required this.leagueName,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.of(context).pushNamed(
-        seasonsRoute,
+        matchesRoute,
+        arguments: {
+          'seasonId': seasonId,
+          'competitionId': competitionId,
+          'seasonName': seasonName,
+          'leagueName': leagueName
+        },
       ),
       child: Center(
         child: Card(
