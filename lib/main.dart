@@ -1,6 +1,9 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:football_score_predictor/views/leagues_view.dart';
 import 'package:football_score_predictor/views/match_view.dart';
+import 'package:football_score_predictor/views/paginated_matches_view.dart';
 import 'package:football_score_predictor/views/seasons_view.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -20,14 +23,15 @@ Future<void> main() async {
     theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: const BrMatchesView(),
+    home: const PaginatedMatchesView(),
     routes: {
       matchesRoute: (context) => const MatchesView(),
       seasonsRoute: (context) => const SeasonView(),
       brMatchesRoute: (context) => const BrMatchesView(),
       leaguesRoute: (context) => const LeaguesView(),
       aboutUsRoute: (context) => const AboutUsView(),
-      matchRoute: (context) => const MatchView()
+      matchRoute: (context) => const MatchView(),
+      paginatedMatchesRoute: (context) => const PaginatedMatchesView()
     },
   ));
 }

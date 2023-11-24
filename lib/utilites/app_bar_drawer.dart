@@ -30,7 +30,7 @@ class AppBarDrawer extends StatelessWidget {
           ListTile(
             title: const Text('Rodada Mais Recente- Brasileirão'),
             onTap: () {
-              Navigator.of(context).pushNamed(brMatchesRoute);
+              Navigator.of(context).pushNamed(paginatedMatchesRoute);
             },
           ),
           ListTile(
