@@ -18,19 +18,25 @@ class AppBarDrawer extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Text('Drawer Header'),
+              child: Text('Menu'),
             ),
           ),
           ListTile(
-            title: const Text('Ligas'),
+            title: const Text('Todas as Ligas'),
             onTap: () {
               Navigator.of(context).pushNamed(leaguesRoute);
             },
           ),
           ListTile(
-            title: const Text('Rodada Mais Recente'),
+            title: const Text('Rodada Mais Recente- Brasileirão'),
             onTap: () {
               Navigator.of(context).pushNamed(brMatchesRoute);
+            },
+          ),
+          ListTile(
+            title: const Text('Sobre o Projeto'),
+            onTap: () {
+              Navigator.of(context).pushNamed(aboutUsRoute);
             },
           ),
         ],

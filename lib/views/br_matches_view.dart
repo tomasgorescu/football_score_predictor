@@ -20,7 +20,7 @@ class _BrMatchesViewState extends State<BrMatchesView> {
     final _future = Supabase.instance.client
         .from('br_fat_matches')
         .select<List<Map<String, dynamic>>>(
-            'time_mandante, time_visitante, gols_mandante, gols_visitante')
+            'id_partida, time_mandante, time_visitante, gols_mandante, gols_visitante')
         .eq('ano_campeonato', currentSeason)
         .eq('rodada', currentRound);
     return Scaffold(
@@ -41,8 +41,15 @@ class _BrMatchesViewState extends State<BrMatchesView> {
             itemBuilder: ((context, index) {
               final match = matches[index];
               return MatchCard(
+                matchId: match['id_partida'].toString(),
                 awayTeamImage: Image.asset(
-                    'assets/images/clubs/${match['time_visitante']}.png'),
+                  'assets/images/clubs/${match['time_visitante']}.png',
+                  errorBuilder: (context, error, stackTrace) {
+                    return Image.asset(
+                      "assets/images/clubs/placeholder.jpeg",
+                    );
+                  },
+                ),
                 awayTeamScore: match['gols_visitante'].toString(),
                 awayTeamName: match['time_visitante'],
                 homeTeamImage: Image.asset(
