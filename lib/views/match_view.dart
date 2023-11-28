@@ -35,7 +35,6 @@ class _MatchViewState extends State<MatchView> {
             return const Center(child: CircularProgressIndicator());
           }
           final matches = snapshot.data!;
-          print(matches);
           return ListView.builder(
             itemCount: matches.length,
             itemBuilder: ((context, index) {

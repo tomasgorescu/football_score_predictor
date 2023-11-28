@@ -55,7 +55,7 @@ class _AboutUsViewState extends State<AboutUsView>
                   // Display the animated value
                   return Text(
                     '${_animation.value.toInt()}',
-                    style: TextStyle(fontSize: 30),
+                    style: const TextStyle(fontSize: 30),
                   );
                 },
               ),
@@ -68,6 +68,24 @@ class _AboutUsViewState extends State<AboutUsView>
           const SizedBox(height: 100),
           const Text(
               'Este projeto é fruto do Trabalho de Conclusão de Curso da Engenharia da Computação, da Escola Politécnica da USP'),
+          const SizedBox(height: 50),
+          Stack(
+            children: [
+              Image.asset(
+                'assets/images/crystal_ball.png',
+                width: 100,
+              ),
+
+              // Adjust position and size of the crystal ball
+              Positioned(
+                top: 5,
+                height: 60,
+                child: Image.asset(
+                  'assets/images/clubs/Santos.png',
+                ),
+              ),
+            ],
+          ),
           const SizedBox(height: 50),
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,
