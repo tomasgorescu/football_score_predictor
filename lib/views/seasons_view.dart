@@ -39,7 +39,7 @@ class _SeasonViewState extends State<SeasonView> {
               itemBuilder: ((context, index) {
                 final season = seasons[index];
                 return SeasonCard(
-                  seasonId: season['season_id'].toString(),
+                  seasonId: season['season_id'],
                   seasonName: season['season_name'],
                   competitionId: season['competition_id'].toString(),
                   leagueName: arguments['leagueName'],
@@ -53,7 +53,7 @@ class _SeasonViewState extends State<SeasonView> {
 
 class SeasonCard extends StatelessWidget {
   final String seasonName;
-  final String seasonId;
+  final int seasonId;
   final String competitionId;
   final String leagueName;
 
@@ -68,15 +68,18 @@ class SeasonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).pushNamed(
-        matchesRoute,
-        arguments: {
-          'seasonId': seasonId,
-          'competitionId': competitionId,
-          'seasonName': seasonName,
-          'leagueName': leagueName
-        },
-      ),
+      onTap: () => {
+        print(competitionId == "999"),
+        Navigator.of(context).pushNamed(
+          competitionId == "999" ? paginatedMatchesRoute : matchesRoute,
+          arguments: {
+            'seasonId': competitionId == "999" ? seasonName : seasonId,
+            'competitionId': competitionId,
+            'seasonName': seasonName,
+            'leagueName': leagueName
+          },
+        )
+      },
       child: Center(
         child: Card(
           child: SizedBox(

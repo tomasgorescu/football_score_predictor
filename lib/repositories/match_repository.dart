@@ -9,30 +9,15 @@ class MatchRepository with ChangeNotifier {
 
   List<Match> get matches => _matches;
 
-  getMatches() async {
+  getMatches(int? seasonId) async {
+    final anoCampeonato = seasonId ?? 2023;
     final result = await Supabase.instance.client
         .from('br_fat_matches')
         .select<List<Map<String, dynamic>>>('*')
-        .eq('ano_campeonato', 2023)
+        .eq('ano_campeonato', anoCampeonato)
         .range(resultsFetched, resultsFetched + perPage)
         .order('data', ascending: false);
     for (var i = 0; i < result.length; i++) {
-      print(result[i]);
-      _matches.add(Match.fromMap(result[i]));
-    }
-    resultsFetched += result.length;
-    notifyListeners();
-  }
-
-  getMatchesBySeason(int seasonId) async {
-    final result = await Supabase.instance.client
-        .from('br_fat_matches')
-        .select<List<Map<String, dynamic>>>('*')
-        .eq('ano_campeonato', seasonId)
-        .range(resultsFetched, resultsFetched + perPage)
-        .order('data', ascending: false);
-    for (var i = 0; i < result.length; i++) {
-      print(result[i]);
       _matches.add(Match.fromMap(result[i]));
     }
     resultsFetched += result.length;

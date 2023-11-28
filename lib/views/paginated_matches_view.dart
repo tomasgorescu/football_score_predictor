@@ -9,12 +9,15 @@ class PaginatedMatchesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final arguments = (ModalRoute.of(context)?.settings.arguments ??
+        <String, dynamic>{}) as Map;
+    final seasonId = int.parse(arguments['seasonId'] ?? '2023');
     return Scaffold(
         appBar: AppBar(
           title: const Text('Score Predictor'),
           toolbarHeight: height,
         ),
         drawer: const AppBarDrawer(),
-        body: const MatchesList());
+        body: MatchesList(seasonId: seasonId));
   }
 }

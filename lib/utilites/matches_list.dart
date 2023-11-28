@@ -12,6 +12,7 @@ class MatchesList extends StatefulWidget {
 }
 
 class _MatchesListState extends State<MatchesList> {
+  int? _currentSeasonId;
   late MatchRepository matchRepo;
   final loading = ValueNotifier(true);
   late final ScrollController _scrollController;
@@ -21,6 +22,7 @@ class _MatchesListState extends State<MatchesList> {
     super.initState();
     _scrollController = ScrollController();
     _scrollController.addListener(infiniteScrolling);
+    _currentSeasonId = widget.seasonId;
     matchRepo = MatchRepository();
     loadMatches();
   }
@@ -41,7 +43,7 @@ class _MatchesListState extends State<MatchesList> {
 
   loadMatches() async {
     loading.value = true;
-    await matchRepo.getMatches();
+    await matchRepo.getMatches(_currentSeasonId ?? 2023);
     loading.value = false;
   }
 
