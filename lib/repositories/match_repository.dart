@@ -23,4 +23,19 @@ class MatchRepository with ChangeNotifier {
     resultsFetched += result.length;
     notifyListeners();
   }
+
+  getMatchesBySeason(int seasonId) async {
+    final result = await Supabase.instance.client
+        .from('br_fat_matches')
+        .select<List<Map<String, dynamic>>>('*')
+        .eq('ano_campeonato', seasonId)
+        .range(resultsFetched, resultsFetched + perPage)
+        .order('data', ascending: false);
+    for (var i = 0; i < result.length; i++) {
+      print(result[i]);
+      _matches.add(Match.fromMap(result[i]));
+    }
+    resultsFetched += result.length;
+    notifyListeners();
+  }
 }

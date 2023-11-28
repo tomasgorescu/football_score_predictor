@@ -4,7 +4,8 @@ import '../repositories/match_repository.dart';
 import 'match_card.dart';
 
 class MatchesList extends StatefulWidget {
-  const MatchesList({super.key});
+  const MatchesList({super.key, this.seasonId});
+  final int? seasonId;
 
   @override
   State<MatchesList> createState() => _MatchesListState();
@@ -78,6 +79,10 @@ class _MatchesListState extends State<MatchesList> {
                       homeTeamScore: match.homeTeamScore,
                       homeTeamName: match.homeTeamName,
                       round: match.round,
+                      stadium: match.stadium,
+                      referee: match.referee,
+                      audience: match.audience,
+                      date: match.date,
                     );
                   }),
                   separatorBuilder: (_, __) => const Divider(),

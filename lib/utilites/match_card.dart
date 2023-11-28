@@ -11,6 +11,10 @@ class MatchCard extends StatelessWidget {
   final String awayTeamName;
   final String matchId;
   final String? round;
+  final String? stadium;
+  final String? referee;
+  final String? audience;
+  final String? date;
 
   const MatchCard({
     super.key,
@@ -22,6 +26,10 @@ class MatchCard extends StatelessWidget {
     this.homeTeamScore,
     this.awayTeamScore,
     this.round,
+    this.stadium,
+    this.referee,
+    this.audience,
+    this.date,
   });
 
   @override
@@ -33,7 +41,16 @@ class MatchCard extends StatelessWidget {
           arguments: {
             'matchId': matchId,
             'homeName': homeTeamName,
-            'awayName': awayTeamName
+            'awayName': awayTeamName,
+            'awayTeamImage': awayTeamImage,
+            'homeTeamImage': homeTeamImage,
+            'homeTeamScore': homeTeamScore,
+            'awayTeamScore': awayTeamScore,
+            'round': round,
+            'date': date,
+            'stadium': stadium,
+            'referee': referee,
+            'audience': audience,
           },
         );
       },
