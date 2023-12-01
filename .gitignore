@@ -45,3 +45,7 @@ app.*.map.json
 
 # secretes
 config.json
+
+/.firebase
+firebase.json
+.firebaserc

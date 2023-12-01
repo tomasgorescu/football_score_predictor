@@ -53,77 +53,78 @@ class _AboutUsViewState extends State<AboutUsView>
         toolbarHeight: height,
       ),
       drawer: const AppBarDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: Column(
-          children: [
-            const SizedBox(height: 100),
-            const Text(
-              'Futebol não é brincaidera... muito menos quando tem dinheiro envolvido ',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 30),
-            ),
-            const SizedBox(height: 30),
-            // AnimatedBuilder(
-            //   animation: _accuracyAnimation,
-            //   builder: (context, child) {
-            //     // Display the animated value
-            //     return Text(
-            //       'Nós predizemos os resultados com  ${_accuracyAnimation.value.toInt()}% de precisão',
-            //       style: const TextStyle(fontSize: 30),
-            //     );
-            //   },
-            // ),
-            const Text(
-              'Este projeto começou com o objetivo de criar uma forma de prever resultado de partidas com base em Aprendizado de Máquina. Como você pode imaginar, o futebol tem milhões de variáveis muito difíceis de quantificar, como as de carater psicológico. Que modelo consegue prever quando o craque teve uma discussão na noite anterior?',
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 10),
-            const Text(
-              'Aí que está a chave: o modelo não precisa ser perfeito, só precisa ser melhor que o das casas de aposta.',
-              textAlign: TextAlign.center,
-            ),
-            const Text(
-              'Então, além da construção do nosso modelo, começamos a treina-lo, comparando com as odds e buscando as melhores apostas.',
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 30),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            children: [
+              const SizedBox(height: 100),
+              const Text(
+                'Futebol não é brincaidera... muito menos quando tem dinheiro envolvido ',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 30),
+              ),
+              const SizedBox(height: 30),
+              // AnimatedBuilder(
+              //   animation: _accuracyAnimation,
+              //   builder: (context, child) {
+              //     // Display the animated value
+              //     return Text(
+              //       'Nós predizemos os resultados com  ${_accuracyAnimation.value.toInt()}% de precisão',
+              //       style: const TextStyle(fontSize: 30),
+              //     );
+              //   },
+              // ),
+              const Text(
+                'Este projeto começou com o objetivo de criar uma forma de prever resultado de partidas com base em Aprendizado de Máquina. Como você pode imaginar, o futebol tem milhões de variáveis muito difíceis de quantificar, como as de carater psicológico. Que modelo consegue prever quando o craque teve uma discussão na noite anterior?',
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                'Aí que está a chave: o modelo não precisa ser perfeito, só precisa ser melhor que o das casas de aposta.',
+                textAlign: TextAlign.center,
+              ),
+              const Text(
+                'Então, além da construção do nosso modelo, começamos a treina-lo, comparando com as odds e buscando as melhores apostas.',
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 30),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Nós conseguimos lucrar',
-                  style: TextStyle(fontSize: 20),
-                ),
-                AnimatedBuilder(
-                  animation: _profitAnimation,
-                  builder: (context, child) {
-                    // Display the animated value
-                    return Text(
-                      ' ${_profitAnimation.value.toInt()}% ',
-                      style: const TextStyle(fontSize: 25),
-                    );
-                  },
-                ),
-                const Text(
-                  'na média das apostas',
-                  style: TextStyle(fontSize: 20),
-                ),
-              ],
-            ),
-            const SizedBox(height: 30),
-            const Text(
-              'Aqui mesmo você vai encontrar as nossas recomendações de melhores apostas para cada rodada, na aba "Melhores Apostas".',
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 50),
-            const Text(
-                'Este projeto é fruto do Trabalho de Conclusão de Curso da Engenharia da Computação, da Escola Politécnica da USP'),
-            const SizedBox(height: 50),
-            const Padding(
-              padding: EdgeInsets.all(30.0),
-              child: Column(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Nós conseguimos lucrar',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  AnimatedBuilder(
+                    animation: _profitAnimation,
+                    builder: (context, child) {
+                      // Display the animated value
+                      return Text(
+                        ' ${_profitAnimation.value.toInt()}% ',
+                        style: const TextStyle(fontSize: 25),
+                      );
+                    },
+                  ),
+                  const Text(
+                    'na média das apostas',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 30),
+              const Text(
+                'Aqui mesmo você vai encontrar as nossas recomendações de melhores apostas para cada rodada, na aba "Melhores Apostas".',
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 50),
+              const Text(
+                'Este projeto é fruto do Trabalho de Conclusão de Curso da Engenharia da Computação, da Escola Politécnica da USP',
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 50),
+              const Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -147,37 +148,37 @@ class _AboutUsViewState extends State<AboutUsView>
                   ),
                 ],
               ),
-            ),
-            const SizedBox(height: 50),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconButton(
-                      iconSize: 50,
-                      onPressed: _launchGitUrl,
-                      icon: const Icon(SimpleIcons.github),
-                    ),
-                    const Text('GitHub')
-                  ],
-                ),
-                Column(
-                  children: [
-                    IconButton(
-                      iconSize: 50,
-                      onPressed: _launchPaperUrl,
-                      icon: const Icon(
-                        Icons.article,
+              const SizedBox(height: 50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      IconButton(
+                        iconSize: 50,
+                        onPressed: _launchGitUrl,
+                        icon: const Icon(SimpleIcons.github),
                       ),
-                    ),
-                    const Text('Paper')
-                  ],
-                ),
-              ],
-            ),
-          ],
+                      const Text('GitHub')
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        iconSize: 50,
+                        onPressed: _launchPaperUrl,
+                        icon: const Icon(
+                          Icons.article,
+                        ),
+                      ),
+                      const Text('Paper')
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

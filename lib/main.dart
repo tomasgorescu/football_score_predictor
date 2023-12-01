@@ -16,7 +16,7 @@ Future<void> main() async {
     anonKey: const String.fromEnvironment('supabaseKey'),
   );
   runApp(MaterialApp(
-    title: 'Flutter Demo',
+    title: 'Mago das apostas',
     theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
