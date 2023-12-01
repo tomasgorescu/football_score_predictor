@@ -22,15 +22,16 @@ class AppBarDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: const Text('Todas as Ligas'),
+            title: const Text('Outras temporadas'),
             onTap: () {
-              Navigator.of(context).pushNamed(leaguesRoute);
+              Navigator.of(context).pushNamed(seasonsRoute);
             },
           ),
           ListTile(
-            title: const Text('Rodada Mais Recente- Brasileirão'),
+            title: const Text('Rodada Mais Recente'),
             onTap: () {
-              Navigator.of(context).pushNamed(paginatedMatchesRoute);
+              Navigator.of(context).pushNamed(paginatedMatchesRoute,
+                  arguments: {'leagueName': 'Brasileirão'});
             },
           ),
           ListTile(
@@ -39,6 +40,7 @@ class AppBarDrawer extends StatelessWidget {
               Navigator.of(context).pushNamed(aboutUsRoute);
             },
           ),
+          // SeasonView() was left out while we gather more data and modeling towards other leagues results
         ],
       ),
     );

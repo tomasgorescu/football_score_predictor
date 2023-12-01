@@ -14,17 +14,18 @@ class SeasonView extends StatefulWidget {
 class _SeasonViewState extends State<SeasonView> {
   @override
   Widget build(BuildContext context) {
-    final arguments = (ModalRoute.of(context)?.settings.arguments ??
-        <String, dynamic>{}) as Map;
+    //final arguments = (ModalRoute.of(context)?.settings.arguments ??  <String, dynamic>{}) as Map;
+    const int leagueId = 999;
+    const String leagueName = 'Brasileirão';
     final _future = Supabase.instance.client
         .from('seasons')
         .select<List<Map<String, dynamic>>>()
-        .eq('competition_id', arguments['leagueId'])
+        .eq('competition_id', leagueId)
         .order('season_name');
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(arguments['leagueName']),
+        title: Text(leagueName),
         toolbarHeight: height,
       ),
       body: FutureBuilder<List<Map<String, dynamic>>>(
@@ -42,7 +43,7 @@ class _SeasonViewState extends State<SeasonView> {
                   seasonId: season['season_id'],
                   seasonName: season['season_name'],
                   competitionId: season['competition_id'].toString(),
-                  leagueName: arguments['leagueName'],
+                  leagueName: leagueName,
                 );
               }),
             );

@@ -12,9 +12,10 @@ class PaginatedMatchesView extends StatelessWidget {
     final arguments = (ModalRoute.of(context)?.settings.arguments ??
         <String, dynamic>{}) as Map;
     final seasonId = int.parse(arguments['seasonId'] ?? '2023');
+    final seasonName = arguments['leagueName'] ?? 'Brasileirão';
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Score Predictor'),
+          title: Text(seasonName),
           toolbarHeight: height,
         ),
         drawer: const AppBarDrawer(),
