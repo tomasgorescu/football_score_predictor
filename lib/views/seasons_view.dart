@@ -25,7 +25,7 @@ class _SeasonViewState extends State<SeasonView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(leagueName),
+        title: const Text(leagueName),
         toolbarHeight: height,
       ),
       body: FutureBuilder<List<Map<String, dynamic>>>(
@@ -70,7 +70,6 @@ class SeasonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => {
-        print(competitionId == "999"),
         Navigator.of(context).pushNamed(
           competitionId == "999" ? paginatedMatchesRoute : matchesRoute,
           arguments: {

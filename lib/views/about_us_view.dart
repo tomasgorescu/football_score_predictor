@@ -58,7 +58,7 @@ class _AboutUsViewState extends State<AboutUsView>
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
             children: [
-              const SizedBox(height: 100),
+              const SizedBox(height: 30),
               const Text(
                 'Futebol não é brincaidera... muito menos quando tem dinheiro envolvido ',
                 textAlign: TextAlign.center,
@@ -90,28 +90,16 @@ class _AboutUsViewState extends State<AboutUsView>
               ),
               const SizedBox(height: 30),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Nós conseguimos lucrar',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  AnimatedBuilder(
-                    animation: _profitAnimation,
-                    builder: (context, child) {
-                      // Display the animated value
-                      return Text(
-                        ' ${_profitAnimation.value.toInt()}% ',
-                        style: const TextStyle(fontSize: 25),
-                      );
-                    },
-                  ),
-                  const Text(
-                    'na média das apostas',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ],
+              AnimatedBuilder(
+                animation: _profitAnimation,
+                builder: (context, child) {
+                  // Display the animated value
+                  return Text(
+                    'Nós conseguimos lucrar ${_profitAnimation.value.toInt()}% na média das apostas',
+                    style: const TextStyle(fontSize: 25),
+                    textAlign: TextAlign.center,
+                  );
+                },
               ),
               const SizedBox(height: 30),
               const Text(
@@ -230,9 +218,15 @@ class DevIcon extends StatelessWidget {
             maxRadius: 50.0,
             minRadius: 25,
           ),
-          Text(name),
+          Text(
+            name,
+            textAlign: TextAlign.center,
+          ),
           const SizedBox(height: 20),
-          Text(role)
+          Text(
+            role,
+            textAlign: TextAlign.center,
+          )
         ],
       ),
     );

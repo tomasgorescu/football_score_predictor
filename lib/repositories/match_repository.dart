@@ -12,7 +12,7 @@ class MatchRepository with ChangeNotifier {
   getMatches(int? seasonId) async {
     final anoCampeonato = seasonId ?? 2023;
     final result = await Supabase.instance.client
-        .from('br_fat_matches')
+        .from('br_fat_matches_predictions')
         .select<List<Map<String, dynamic>>>('*')
         .eq('ano_campeonato', anoCampeonato)
         .range(resultsFetched, resultsFetched + perPage)

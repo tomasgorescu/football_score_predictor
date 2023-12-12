@@ -85,6 +85,10 @@ class _MatchesListState extends State<MatchesList> {
                       referee: match.referee,
                       audience: match.audience,
                       date: match.date,
+                      homeWinProbabilty: match.homeWinProbabilty,
+                      homeOdds: match.homeOdds,
+                      betName: match.betName,
+                      betLink: match.betLink,
                     );
                   }),
                   separatorBuilder: (_, __) => const Divider(),

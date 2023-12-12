@@ -15,6 +15,10 @@ class MatchCard extends StatelessWidget {
   final String? referee;
   final String? audience;
   final String? date;
+  final dynamic homeWinProbabilty;
+  final dynamic homeOdds;
+  final String? betName;
+  final String? betLink;
 
   const MatchCard({
     super.key,
@@ -30,6 +34,10 @@ class MatchCard extends StatelessWidget {
     this.referee,
     this.audience,
     this.date,
+    this.homeWinProbabilty,
+    this.homeOdds,
+    this.betName,
+    this.betLink,
   });
 
   @override
@@ -51,6 +59,10 @@ class MatchCard extends StatelessWidget {
             'stadium': stadium,
             'referee': referee,
             'audience': audience,
+            'homeWinProbabilty': homeWinProbabilty,
+            'homeOdds': homeOdds,
+            'betName': betName,
+            'betLink': betLink,
           },
         );
       },
