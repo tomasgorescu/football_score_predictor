@@ -152,7 +152,7 @@ class _HomeWinProbabiltyIndicatorState extends State<HomeWinProbabiltyIndicator>
                 children: [
                   if (_homeWinProbabilty != null)
                     Text(
-                      'Probabilidade de vitória do time de casa: ${_profitAnimation.value.toDouble().round()}%',
+                      'Score de vitória do time de casa: ${_profitAnimation.value.toDouble().round()}',
                       style: const TextStyle(fontSize: 25),
                       textAlign: TextAlign.center,
                     ),
@@ -186,16 +186,16 @@ class BestBetLink extends StatelessWidget {
         ? const SizedBox.shrink()
         : Column(
             children: [
-              Text('As melhores odds para essa aposta são de $odds%'),
+              Text('As melhores odds para essa aposta são de $odds'),
               GestureDetector(
                 onTap: _launchBetUrl,
-                child: Row(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text('Clique para apostar com essas odds na '),
                     Text(
                       '$betName',
-                      style: const TextStyle(fontSize: 18),
+                      style: const TextStyle(fontSize: 18, color: Colors.blue),
                     ),
                   ],
                 ),

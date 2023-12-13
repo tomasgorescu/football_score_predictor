@@ -157,10 +157,34 @@ class _AboutUsViewState extends State<AboutUsView>
                         iconSize: 50,
                         onPressed: _launchPaperUrl,
                         icon: const Icon(
-                          Icons.article,
+                          Icons.source,
                         ),
                       ),
                       const Text('Paper')
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        iconSize: 50,
+                        onPressed: _launchBannerUrl,
+                        icon: const Icon(
+                          Icons.article,
+                        ),
+                      ),
+                      const Text('Banner')
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        iconSize: 50,
+                        onPressed: _launchPressReleaseUrl,
+                        icon: const Icon(
+                          Icons.summarize,
+                        ),
+                      ),
+                      const Text('Press Release')
                     ],
                   ),
                 ],
@@ -190,6 +214,22 @@ class _AboutUsViewState extends State<AboutUsView>
   _launchPaperUrl() async {
     final Uri url = Uri.parse(
         'https://lfjtuqqdoerrfsivceia.supabase.co/storage/v1/object/public/documents/TCC_PCS_EPUSP.pdf');
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
+  _launchPressReleaseUrl() async {
+    final Uri url = Uri.parse(
+        'https://lfjtuqqdoerrfsivceia.supabase.co/storage/v1/object/public/documents/Press_Release_PCS3560_SEM_2023_Grupo_S20.pdf');
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
+  _launchBannerUrl() async {
+    final Uri url = Uri.parse(
+        'https://lfjtuqqdoerrfsivceia.supabase.co/storage/v1/object/public/documents/Banner_PCS3560_SEM_2023_Grupo_S20.pdf');
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');
     }
